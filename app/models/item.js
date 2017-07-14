@@ -1,6 +1,6 @@
 // grab the mongoose module
 var mongoose = require('mongoose');
-\
+
 var Schema = mongoose.Schema;
 
 var itemSchema = new Schema({

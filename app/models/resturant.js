@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 
 var resturantSchema = new Schema({
   
-    name: String,
+    name: {type:String, required: true, index:true},
+    image_url: {type:String, required: true},
     menus: [{}]
 });
 
