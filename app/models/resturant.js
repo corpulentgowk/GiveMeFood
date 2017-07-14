@@ -1,6 +1,5 @@
 // grab the mongoose module
 var mongoose = require('mongoose');
-var uniqueValidator = require('mongoose-unique-validator');
 
 var Schema = mongoose.Schema;
 
@@ -11,7 +10,6 @@ var resturantSchema = new Schema({
     menus: {type: [{}]}
 });
 
-resturantSchema.plugin(uniqueValidator);
 var resturant = mongoose.model('Resturant', resturantSchema);
 
 resturant.on('index', function(err) {

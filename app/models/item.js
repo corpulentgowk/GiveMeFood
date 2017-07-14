@@ -8,7 +8,6 @@ var itemSchema = new Schema({
     price: {type: Number, required: true},
 	});
 
-//itemSchema.plugin(uniqueValidator);
 var item = mongoose.model('Item', itemSchema);
 
 item.on('index', function(err) {
