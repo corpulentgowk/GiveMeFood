@@ -9,6 +9,9 @@ module.exports = function(app) {
 	var item = require('./routes/item');
 	app.use('/api', item); // associate with API
 
+	var user = require('./routes/user');
+	app.use('/api', user); // associate with API
+
 	// frontend routes =========================================================
 	// route to handle all angular requests
 
