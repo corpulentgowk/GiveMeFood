@@ -8,7 +8,7 @@ var resturantSchema = new Schema({
   
     name: {type:String, required: true, index:true},
     image_url: {type:String, required: true},
-    menus: [{}]
+    menus: {type: [{}]}
 });
 
 resturantSchema.plugin(uniqueValidator);

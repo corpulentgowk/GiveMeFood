@@ -14,7 +14,6 @@ router.get('/resturants', function(req, res, next){
 	});
 });
 
-
 router.get('/resturant/:id', function(req, res, next){
 	console.log(req.body);
 	Resturant.findOne({name: req.params.id}, function(err, resturant) {
@@ -26,7 +25,6 @@ router.get('/resturant/:id', function(req, res, next){
 	   	res.json(resturant);
 	});
 });
-
 
 router.post('/create/resturant', function(req,res){
 
