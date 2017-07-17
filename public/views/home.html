@@ -1,5 +1,22 @@
-<div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
+<!--restaurant pics-->
+<div class="container" id="restaurantContainer">
+  <div class="row">
+    <div class="col-sm-4" style="height: 450px">
+    	<a href="/restaurant"><img ng-click=getId(allRestaurants[0]._id) ng-src="{{ allRestaurants[0].image_url }}" class="center-block restaurant" id="mcdonalds"></a>
+    </div>
 
-	<p>{{ tagline }}</p>
+    <div class="col-sm-4" style="height: 450px">
+    	<a href="/restaurant"><img ng-src="{{ allRestaurants[1].image_url }}" class="center-block restaurant" id="taco-bell"></a>
+    </div>
+
+    <div class="col-sm-4" style="height: 450px">
+   		 <a href="/restaurant"><img ng-src="{{ allRestaurants[2].image_url }}" class="center-block restaurant" id="chick-fil-a"></a>
+   	 </div>
+  </div>
+
+<!--https://www.mcdonalds.com/content/dam/usa/promotions/desktop/evm__750x537.jpg
+http://www.kfkgroup.com/wp-content/gallery/taco-bell/tacos-and-live-mas.jpg
+http://s3.amazonaws.com/spoonuniversi-wpengine/spoonuniversi/wp-content/uploads/sites/236/2016/06/Screen-Shot-2016-06-24-at-10.57.38-PM.png" class="center-block restaurant
+-->
+
 </div>
