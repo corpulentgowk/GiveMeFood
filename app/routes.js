@@ -6,6 +6,9 @@ module.exports = function(app) {
 	var resturant = require('./routes/resturant');
 	app.use('/', resturant); // associate with API 
 
+	var menu = require('./routes/menu');
+	app.use('/api', menu); // associate with API
+
 	var item = require('./routes/item');
 	app.use('/api', item); // associate with API
 

@@ -15,49 +15,27 @@ router.get('/resturants', function(req, res, next){
 });
 
 router.get('/resturant/:id', function(req, res, next){
-	console.log(req.body);
 	Resturant.findOne({name: req.params.id}, function(err, resturant) {
 	   	if (err){
 	   		res.json(err); 
 	   		return;
 	   	} 
-	   	console.log(resturant);
 	   	res.json(resturant);
 	});
 });
 
 router.post('/create/resturant', function(req,res){
 
-	var saveThis = {"name": "McDonalds", "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/1200px-McDonald%27s_Golden_Arches.svg.png", "menus" : [{"name":"Regular Menu", "items": ["A", "B"]}, {"name":"Lunch Menu", "items": ["C", "D"]}]};
-
-	Resturant.create(saveThis, function (err, resturant) {
- 		 if (err){res.json(err); return;} 
+	//var example = {"name": "McDonalds", "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/1200px-McDonald%27s_Golden_Arches.svg.png", "menus" : [{"name":"Regular Menu", "items": ["A", "B"]}, {"name":"Lunch Menu", "items": ["C", "D"]}]};
+	
+	Resturant.create(req.body, function (err, resturant) {
+ 		 if (err){
+ 		 	res.json(err); 
+ 		 	return;
+ 		 } 
   			// saved!
-  			console.log(resturant);
   			res.json({"status":"success"});
 		});
 });
 
 module.exports = router;
-
-
-
-
-
-/*  
-
-
-
-
-			var newUser = Resturant({
-		  name: 'Peter Quill'
-		});
-
-		// save the user
-		newUser.save(function(err) {
-		  if (err) throw err;
-
-		  console.log('Resturant created!');
-		});
-
-*/
