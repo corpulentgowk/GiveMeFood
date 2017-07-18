@@ -23,7 +23,8 @@ router.post('/login', function (req, res, next) {
       if(err) return next(err);
       if(!user) return res.send('Not logged in!');
 
-      req.session.user = email;
+      req.session.user = user;
+
       return res.send('Logged In!');
    });
 });
@@ -36,6 +37,15 @@ router.get('/logout', function (req, res) {
 router.get('/current_user', function (req, res) {
    //req.session.user = null;
    return res.send(req.session.user)
+});
+
+router.get('/is_admin', function (req, res) {
+  if (req.session.user){
+   return res.json({"status":req.session.user.admin});
+  }
+  else{
+    return res.json({"status":false});
+  }
 });
 
 module.exports = router;
