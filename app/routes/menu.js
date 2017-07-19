@@ -2,8 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var Resturant = require('../models/resturant')
-
+//Helper Functions for Restrictions
 var acceptedKeys = ["name", "items"];
+function checkKeys(key) {	
+    return acceptedKeys.includes(key)
+}
 
 router.get('/menus/:id', function(req, res, next){ //returns menu for a resturants with specified id
 
@@ -16,12 +19,7 @@ router.get('/menus/:id', function(req, res, next){ //returns menu for a resturan
 	});
 });
 
-function checkKeys(key) {
-	
-    return acceptedKeys.includes(key)
-}
-
-router.post('/create/resturant/menu/:id', function(req,res){
+router.post('/create/menu/:id', function(req,res){
 	var conditions = { name: req.params.id }
 	  , update = {$addToSet: {menus: req.body }}
 	  , options = {upsert: true};
