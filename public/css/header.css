@@ -29,4 +29,6 @@ form {
 	z-index: 1;
 	background-color: #d7f4f3;
 	border-radius: 20px;
+	box-shadow: 10px 10px 10px grey;
 }
+

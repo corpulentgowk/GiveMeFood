@@ -1,5 +1,6 @@
 angular.module('headerCtrl', []).controller('headerController', function($scope, $rootScope, $http) {
-		$http({
+	//get restaurants
+    	$http({
     method : "GET",
     url : "http://localhost:3000/resturants"
   }).then(function mySuccess(response) {
@@ -8,10 +9,11 @@ angular.module('headerCtrl', []).controller('headerController', function($scope,
       $scope.allRestaurants = response.statusText;
   });
 
-    $scope.getId = function(id){
-        $rootScope.restaurantId = id;
+    $scope.getName = function(name){
+        $rootScope.restaurantName = name;
     }
 
+    // log in
 	$scope.loginform = false;
 	$scope.login = function(){
 		console.log($scope.user);
@@ -21,18 +23,20 @@ angular.module('headerCtrl', []).controller('headerController', function($scope,
 		//close pop up
 		$scope.loginform = !$scope.loginform;
 
-		var posting = $http({
-            method: 'POST',
-            /*posting to /post */
-            url: '/api/create/post',
-            data: $scope.user,
-
-            processData: false
+		 $http({
+        url: 'http://localhost:3000/api/login',
+        method: "POST",
+        data: $scope.user 
         })
-        posting.success(function (response) {
-            /*executed when server responds back*/
+        .then(function(response) {
+            //success
             console.log(response);
-            $scope.response.data = response;
+            document.getElementById('loginButton').style.display = 'none';
+            document.getElementById('profileButton').style.display = 'block';
+         }, 
+         function(response) { // optional
+            // failed
+            console.log(response);
         });
 	}
 
@@ -44,6 +48,7 @@ angular.module('headerCtrl', []).controller('headerController', function($scope,
 		}
 	}
 
+    // register new user
 	$scope.newUser = false;
 	$scope.register = function(){
 		console.log($scope.user);
@@ -53,19 +58,24 @@ angular.module('headerCtrl', []).controller('headerController', function($scope,
 		//close pop up
 		$scope.newUser = !$scope.newUser;
 
-		var posting = $http({
-            method: 'POST',
-            /*posting to /post */
-            url: '/api/create/post',
-            data: $scope.user,
-
-            processData: false
+        //post to db
+	   $http({
+        url: 'http://localhost:3000/api/signup',
+        method: "POST",
+        data: $scope.user 
         })
-        posting.success(function (response) {
-            /*executed when server responds back*/
+        .then(function(response) {
+            //success
             console.log(response);
-            $scope.response.data = response;
+         }, 
+         function(response) { // optional
+            // failed
+            console.log(response);
         });
+
+        //log in after registering
+        $scope.login();
+        $scope.loginform = false;
 	}
 
 
