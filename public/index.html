@@ -19,13 +19,13 @@
 
 
 	<!-- ANGULAR CUSTOM -->
-	<script src="js/controllers/MainCtrl.js"></script>
+	<script src="js/controllers/sessionsCtrl.js"></script>
 	<script src="js/controllers/restaurantCtrl.js"></script>
 	<script src="js/services/restaurantService.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 </head>
-<body ng-app="foodApp" ng-controller="headerController">
+<body ng-app="foodApp" ng-controller="sessionsController">
 <div class="container">
 	
 	<!-- HEADER -->
@@ -42,23 +42,32 @@
 
 	<!-- Title -->
 <div class="container">
-	<div id="header">
+	<div id="header" class="dropdown">
 		<h1>Give Me Food</h1>
-		<!--shopping car button-->
-			 <button type="button" class="btn btn-info btn-lg pull-right">
-	       		 <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-			</button>
+		<!--buttons -->
+		<div class="row" id="buttonRow">
+			<div class="btn-toolbar pull-right">
+				<button id="loginButton"  ng-click="loginToggle()" type="button" class="btn btn-info btn-lg">
+		       		 Login
+				</button>
 
-		<!--log in form-->
-		<div id="loginBar">
-			<button id="loginButton"  ng-click="loginToggle()" type="button" class="btn btn-info btn-lg pull-right" style="margin-right: 5px;">
-	       		 Login
-			</button>
+			
+				<!--profile button-->
+				<button id="profileButton" class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" style="display: none">Hi, {{ user.firstname }}
+	    		<span class="caret"></span></button>
+	    		<ul class="dropdown-menu">
+	     			<li><a href="#">Edit profile</a></li>
+	      			<li><a href="/api/logout" ng-click="logout()">Logout</a></li>
+	    		</ul>
 
-			<button id="profileButton"  ng-click="profileToggle()" type="button" class="btn btn-info btn-lg pull-right" style="display: none; margin-right: 5px;">Profile <span class="caret">
-			</button>
+	    		<!--shopping cart button-->
+				 <button type="button" class="btn btn-info btn-lg pull-right">
+		       		 <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+				</button>
+			</div>
 		</div>
 
+		<!--login form-->
 		<form ng-show="loginform" ng-submit="login()" id="signIn">
 			<p><b>Login</b></p>
 			<input ng-model="user.email" type="text" placeholder="Email">

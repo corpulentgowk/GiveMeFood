@@ -1,6 +1,6 @@
-angular.module('headerCtrl', []).controller('headerController', function($scope, $rootScope, $http) {
+angular.module('sessionsCtrl', []).controller('sessionsController', function($scope, $rootScope, $http) {
 	//get restaurants
-    	$http({
+    $http({
     method : "GET",
     url : "http://localhost:3000/resturants"
   }).then(function mySuccess(response) {
@@ -30,15 +30,35 @@ angular.module('headerCtrl', []).controller('headerController', function($scope,
         })
         .then(function(response) {
             //success
-            console.log(response);
+            console.log(response.status);
             document.getElementById('loginButton').style.display = 'none';
             document.getElementById('profileButton').style.display = 'block';
+            //$('#buttonRow').append('<h2 style="display: inline-block">Welcome {{ user.firstName }}<h2>');
+         }, 
+         function(response) { // optional
+            // failed
+            // console.log(response);
+            // $( "#signIn" ).effect( "shake" );
+        });
+	}
+
+    //logout
+    $scope.logout = function(){
+        $http({
+        url: 'http://localhost:3000/api/logout',
+        method: "GET",
+        })
+        .then(function(response) {
+            //success
+            console.log(response);
+            document.getElementById('loginButton').style.display = 'block';
+            document.getElementById('profileButton').style.display = 'none';
          }, 
          function(response) { // optional
             // failed
             console.log(response);
         });
-	}
+    }
 
 	//toggle login button b/w open, register, close
 	$scope.loginToggle = function(){

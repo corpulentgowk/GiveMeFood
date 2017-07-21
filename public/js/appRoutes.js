@@ -5,12 +5,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		// home page
 		.when('/', {
 			templateUrl: 'views/home.html',
-			controller: 'headerController'
+			controller: 'sessionsController'
 		})
 
 		.when('/restaurant', {
 			templateUrl: 'views/restaurant.html',
 			controller: 'restaurantController'
+		})
+
+		.when('/api/logout', {
+			redirectTo: '/'
 		})
 
 		.when('/geeks', {

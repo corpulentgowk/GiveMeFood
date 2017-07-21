@@ -1,15 +1,15 @@
 <!--restaurant pics-->
 <div class="container" id="restaurantContainer">
   <div class="row">
-    <div class="col-sm-4" style="height: 450px">
+    <div class="col-sm-4" style="height: 450px; overflow: hidden">
     	<a href="/restaurant"><img ng-click=getName(allRestaurants[0].name) ng-src="{{ allRestaurants[0].image_url }}" class="center-block restaurant" id="mcdonalds"></a>
     </div>
 
-    <div class="col-sm-4" style="height: 450px">
+    <div class="col-sm-4" style="height: 450px; overflow: hidden">
     	<a href="/restaurant"><img ng-src="{{ allRestaurants[1].image_url }}" class="center-block restaurant" id="taco-bell"></a>
     </div>
 
-    <div class="col-sm-4" style="height: 450px">
+    <div class="col-sm-4" style="height: 450px; overflow: hidden">
    		 <a href="/restaurant"><img ng-src="{{ allRestaurants[2].image_url }}" class="center-block restaurant" id="chick-fil-a"></a>
    	 </div>
   </div>
