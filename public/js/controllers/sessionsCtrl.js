@@ -17,12 +17,7 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
 	$scope.loginform = false;
 	$scope.login = function(){
 		console.log($scope.user);
-		//clear form
-		var form = document.getElementById("signIn");
-		form.reset();
-		//close pop up
-		$scope.loginform = !$scope.loginform;
-
+        var form = document.getElementById("signIn");
 		 $http({
         url: 'http://localhost:3000/api/login',
         method: "POST",
@@ -30,16 +25,38 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
         })
         .then(function(response) {
             //success
-            console.log(response.status);
-            document.getElementById('loginButton').style.display = 'none';
-            document.getElementById('profileButton').style.display = 'block';
+            $scope.current_user = response.data;
+            console.log($scope.current_user);
+
+            // validate login
+             $http({
+                method : "GET",
+                url : "http://localhost:3000/api/current_user"
+              }).then(function mySuccess(response) {
+                    document.getElementById('loginButton').style.display = 'none';
+                    document.getElementById('profileButton').style.display = 'block';
+                    document.getElementById('profileButton').innerHTML = $scope.user.email;
+                    //clear form
+                    form.reset();
+                    //close pop up
+                    $scope.loginform = !$scope.loginform;
+                }, function myError(response) {
+                    //clear form
+                    form.reset();
+                    //shake form
+                    document.getElementById('signIn').classList.add('shake');
+                    document.getElementById('loginMessage').innerHTML = "Email:  Incorrect Login!";
+              });
+
+
+
             //$('#buttonRow').append('<h2 style="display: inline-block">Welcome {{ user.firstName }}<h2>');
          }, 
          function(response) { // optional
             // failed
             // console.log(response);
-            // $( "#signIn" ).effect( "shake" );
         });
+
 	}
 
     //logout
@@ -60,9 +77,16 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
         });
     }
 
+    // reset form every time toggle Login button
+    function resetForm(){
+    document.getElementById('loginMessage').innerHTML = "Email:";
+    document.getElementById('signIn').classList.remove('shake');
+    };
+
 	//toggle login button b/w open, register, close
 	$scope.loginToggle = function(){
 		$scope.loginform = !$scope.loginform;
+        resetForm();
 		if($scope.newUser){
 			$scope.newUser = false;
 		}

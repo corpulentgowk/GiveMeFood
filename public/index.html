@@ -53,7 +53,7 @@
 
 			
 				<!--profile button-->
-				<button id="profileButton" class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" style="display: none">Hi, {{ user.firstname }}
+				<button id="profileButton" class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" style="display: none">
 	    		<span class="caret"></span></button>
 	    		<ul class="dropdown-menu">
 	     			<li><a href="#">Edit profile</a></li>
@@ -68,24 +68,26 @@
 		</div>
 
 		<!--login form-->
-		<form ng-show="loginform" ng-submit="login()" id="signIn">
-			<p><b>Login</b></p>
-			<input ng-model="user.email" type="text" placeholder="Email">
-			<br><br>
-			<input ng-model="user.password" type="password" placeholder="Password">
-			<br>
+		<form ng-show="loginform" ng-submit="login()" id="signIn" >
+			<label for="email" id="loginMessage">Email:</label>
+      		<input ng-model="user.email" type="email" class="form-control" placeholder="Enter email">
+			<label for="pwd">Password:</label>
+      		<input ng-model="user.password" type="password" class="form-control" placeholder="Enter password">
+      		<label><input type="checkbox" name="remember"> Remember me</label>
 			<a style="cursor: pointer"><p ng-click="newUser=!newUser; loginform=!loginform">Not a user? Register</p></a>
 			<button type="submit" class="btn btn-info btn-sm pull-right">Submit</button>
 		</form>
 
 		<form ng-show="newUser" ng-submit="register()" id="newUser">
 			<p><b>Register</b></p>
-			<input ng-model="user.firstname" type="text" placeholder="First Name">
-			<input ng-model="user.lastname" type="text" placeholder="Last Name">
-			<br><br>
-			<input ng-model="user.email" type="text" placeholder="Email">
-			<input ng-model="user.password" type="password" placeholder="Password">
-			<br><br>
+			<label>Name:</label>
+			<input ng-model="user.firstname" class="form-control" type="text" placeholder="First Name">
+			<input ng-model="user.lastname" class="form-control" type="text" placeholder="Last Name">
+			<br>
+			<label>Login:</label>
+			<input ng-model="user.email" type="email" class="form-control" placeholder="Enter email">
+      		<input ng-model="user.password" type="password" class="form-control" placeholder="Enter password">
+      		<br>
 			<button type="submit" class="btn btn-info btn-md pull-right">Sign me up!</button>
 		</form>
 
@@ -94,7 +96,8 @@
 	<hr>
 </div>
 	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view></div>
+
+		<div ng-view></div>
 
 </div>
 	<hr>

@@ -56,7 +56,7 @@ router.get('/logout', function (req, res) {
 
 router.get('/current_user', function (req, res) {
    //req.session.user = null;
-   return res.send(req.session.user.email)
+   return res.send(req.session.user)
 });
 
 router.get('/is_admin', function (req, res) {
