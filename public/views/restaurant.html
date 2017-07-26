@@ -5,15 +5,13 @@
 		</div>
 
 		<div class="container">
-
 		<!-- Dynamic tabs for each menu -->
 			<uib-tabset active="active">
 			    <uib-tab index="$index + 1" ng-repeat="menu in selectedRestaurant.menus" heading="{{menu.name}}" disable="tab.disabled">
-			    <div ng-repeat="item in menu.items">
-			    	<ul>
-			      		<load-items info="item"></load-items>
-			      	</ul>
-			     </div>
+			    <br>
+			    <ul ng-repeat="item in menu.items">
+			    	<li>{{ item.name }}......................{{ item.price }}</li>
+			     </ul>
 			    </uib-tab>
 		 	</uib-tabset>
 		 	

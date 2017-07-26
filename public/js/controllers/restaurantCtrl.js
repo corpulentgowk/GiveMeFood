@@ -7,19 +7,10 @@
     url : u
   }).then(function mySuccess(response) {
       $scope.selectedRestaurant = response.data;
+      console.log($scope.selectedRestaurant);
     }, function myError(response) {
       $scope.selectedRestaurant = response.statusText;
   });
 
 });
 
-
-menu.directive('loadItems', function(){
-	return { 
-    restrict: 'E', 
-    scope: { 
-      info: '=' 
-    }, 
-    templateUrl: '/views/templates/items.html' 
-  }; 
-});
