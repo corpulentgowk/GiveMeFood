@@ -36,10 +36,9 @@
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/">Home</a>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/restaurant">McDonalds</a></li>
-			<li><a href="/restaurant">TacoBell</a></li>
-			<li><a href="/restaurant">Chick-fil-a</a></li>
+		<!-- only works if go back to home first before switching b/w menus -->
+		<ul class="nav navbar-nav" ng-repeat="restaurants in allRestaurants">
+			<li><a href="/restaurant" ng-click=getName(restaurants.name)>{{restaurants.name}}</a></li>
 		</ul>
 	</nav>
 
@@ -93,9 +92,6 @@
       		<br>
 			<button type="submit" class="btn btn-info btn-md pull-right">Sign me up!</button>
 		</form>
-
-
-     <!--break-->
 	<hr>
 </div>
 	<!-- ANGULAR DYNAMIC CONTENT -->

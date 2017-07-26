@@ -6,20 +6,20 @@
     </div>
 
     <div class="col-sm-4" style="height: 450px; overflow: hidden">
-    	<a href="/restaurant"><img ng-src="{{ allRestaurants[1].image_url }}" class="center-block restaurant" id="taco-bell"></a>
+    	<a href="/restaurant"><img ng-click=getName(allRestaurants[1].name) ng-src="{{ allRestaurants[1].image_url }}" class="center-block restaurant" id="taco-bell"></a>
     </div>
 
     <div class="col-sm-4" style="height: 450px; overflow: hidden">
-   		 <a href="/restaurant"><img ng-src="{{ allRestaurants[2].image_url }}" class="center-block restaurant" id="chick-fil-a"></a>
+   		 <a href="/restaurant"><img ng-click=getName(allRestaurants[2].name) ng-src="{{ allRestaurants[2].image_url }}" class="center-block restaurant" id="chick-fil-a"></a>
    	 </div>
   </div>
 
-<!--https://www.mcdonalds.com/content/dam/usa/promotions/desktop/evm__750x537.jpg
-http://www.kfkgroup.com/wp-content/gallery/taco-bell/tacos-and-live-mas.jpg
-http://s3.amazonaws.com/spoonuniversi-wpengine/spoonuniversi/wp-content/uploads/sites/236/2016/06/Screen-Shot-2016-06-24-at-10.57.38-PM.png" class="center-block restaurant
--->
 
 </div>
 
 
 <!-- {"name":"McDonalds", "image_url": "https://www.mcdonalds.com/content/dam/usa/promotions/desktop/evm__750x537.jpg", "menus": [{"name": "Breakfast", "items":[{"name": "Sausage McMuffin", "price" : "1.19"},{"name":"Egg and Cheese Biscuit", "price" : "1.39"}]},{"name": "Regular", "items":[{"name" : "Big Mac", "price" : "3.99"},{"name" : "Chicken Nuggets", "price" : "4.49"},{"name":"Southwest Salad", "price" : "4.79"}]},{"name": "Drinks", "items":[{"name" : "Frappe", "price" : "3.39"},{"name" : "Smoothie", "price" : "2.89"},{"name" : "Iced Coffee", "price" : "1.39"}]}]} -->
+
+<!-- {"name":"TacoBell", "image_url": "http://www.kfkgroup.com/wp-content/gallery/taco-bell/tacos-and-live-mas.jpg", "menus": [{"name": "Morning", "items":[{"name": "Breakfast Burrito (Bacon)", "price" : "1.69"},{"name":"Waffle Taco (Sausage)", "price" : "1.99"}]},{"name": "Lunch", "items":[{"name" : "3 Doritos Locos Tacos (Regular) and Large Drink", "price" : "5.99"},{"name" : "Cantina Bowl Combo (Steak)", "price" : "6.99"},{"name":"Quesadilla (Chicken)", "price" : "3.29"}]},{"name": "Dessert", "items":[{"name" : "Churro", "price" : "0.99"},{"name" : "Caramel Apple Empanada", "price" : "1.19"},{"name" : "Cinnabon Delights", "price" : "4.49"}]}]} -->
+
+<!-- {"name":"ChickFilA", "image_url": "http://s3.amazonaws.com/spoonuniversi-wpengine/spoonuniversi/wp-content/uploads/sites/236/2016/06/Screen-Shot-2016-06-24-at-10.57.38-PM.png", "menus": [{"name": "Meals", "items":[{"name": "Chick-fil-A Chicken Deluxe Sandwich", "price" : "3.65"},{"name":"Chick-fil-A Nuggets - Combo", "price" : "5.95"}]},{"name": "Sides", "items":[{"name" : "Waffle Potato Fries", "price" : "1.55"},{"name" : "Baked Potato with Butter", "price" : "1.65"},{"name":"Chicken Salad Cup", "price" : "3.19"}]},{"name": "Beverages", "items":[{"name" : "Fresh-Squeezed Lemonade (Regular or Diet)", "price" : "1.55"},{"name" : "Caramel Apple Empanada", "price" : "1.19"},{"name" : "Soft Drinks", "price" : "1.35"}]}]} -->

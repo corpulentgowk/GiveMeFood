@@ -35,7 +35,9 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
                     console.log($scope.current_user);
                     document.getElementById('loginButton').style.display = 'none';
                     document.getElementById('profileButton').style.display = 'block';
-                    document.getElementById('profileButton').innerHTML = "Hi, " + $scope.current_user.firstname + " &#9660;" ; 
+                    document.getElementById('profileButton').innerHTML = "Hi, " + $scope.current_user.firstname + " &#9660;" ;
+                    var user =  $scope.current_user.firstName;
+                    //$('#buttonRow').append('<h2 style="display: inline-block">Welcome + user<h2>');
                     //clear form
                     form.reset();
                     //close pop up
@@ -47,10 +49,6 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
                     document.getElementById('signIn').classList.add('shake');
                     document.getElementById('loginMessage').innerHTML = "Email:  Incorrect Login!";
               });
-
-
-
-            //$('#buttonRow').append('<h2 style="display: inline-block">Welcome {{ user.firstName }}<h2>');
          }, 
          function(response) { // optional
             // failed
