@@ -13,25 +13,6 @@
 
 });
 
-menu.directive('loadMenu', function(){
-	return { 
-    restrict: 'E', 
-    scope: { 
-      info: '=' 
-    }, 
-    templateUrl: '/views/templates/menu.html' 
-  }; 
-});
-
-menu.directive('loopMenu', function(){
-	return { 
-    restrict: 'E', 
-    scope: { 
-      info: '=' 
-    }, 
-    templateUrl: '/views/templates/loopMenu.html' 
-  }; 
-});
 
 menu.directive('loadItems', function(){
 	return { 

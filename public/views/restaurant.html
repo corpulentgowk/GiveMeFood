@@ -1,34 +1,21 @@
 <div class="container">
 			<div class="header">
-				<h1>{{ selectedRestaurant.name}} </h1>
+				<h1>{{ selectedRestaurant.name}}</h1>
 			</div>
 		</div>
 
 		<div class="container">
 
-			<div ng-repeat="menu in selectedRestaurant.menus" ng-if="!$first">
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#menu1">{{ selectedRestaurant.menus[0].name }}</a></li>
-					<load-menu info="menu"></load-menu>
-				</ul> 
-			</div>
-
-<!-- 			<ul class="nav nav-tabs">
-			  <li class="active"><a data-toggle="tab" href="#menu1">Breakfast</a></li>
-			  <li><a data-toggle="tab" href="#menu2">Regular</a></li>
-			  <li><a data-toggle="tab" href="#menu3">Dollar Menu</a></li>
-			</ul>  -->
-
-			<div class="tab-content" ng-repeat="menu in selectedRestaurant.menus" ng-if="!$first">
-			  <loop-menu info="menu"></loop-menu>
-			  
-			  <div id="menu2" class="tab-pane fade">
-			    <h3>Regular</h3>
-			    <p>Some content in menu 1.</p>
-			  </div>
-			  <div id="menu3" class="tab-pane fade">
-			    <h3>Dollar Menu</h3>
-			    <p>Some content in menu 2.</p>
-			  </div>
+		<!-- Dynamic tabs for each menu -->
+			<uib-tabset active="active">
+			    <uib-tab index="$index + 1" ng-repeat="menu in selectedRestaurant.menus" heading="{{menu.name}}" disable="tab.disabled">
+			    <div ng-repeat="item in menu.items">
+			    	<ul>
+			      		<load-items info="item"></load-items>
+			      	</ul>
+			     </div>
+			    </uib-tab>
+		 	</uib-tabset>
+		 	
 			</div>
 		</div>

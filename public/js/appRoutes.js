@@ -15,12 +15,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
 		.when('/api/logout', {
 			redirectTo: '/'
-		})
-
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
 		});
+
+	
 
 	$locationProvider.html5Mode(true);
 

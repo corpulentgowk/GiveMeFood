@@ -1,1 +1,1 @@
-angular.module('foodApp', ['ngRoute', 'appRoutes', 'sessionsCtrl', 'restaurantCtrl', 'restaurantService']);
+angular.module('foodApp', ['ngRoute', 'appRoutes', 'sessionsCtrl', 'restaurantCtrl', 'restaurantService','ui.bootstrap']);

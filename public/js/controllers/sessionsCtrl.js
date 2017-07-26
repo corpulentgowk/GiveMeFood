@@ -25,17 +25,17 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
         })
         .then(function(response) {
             //success
-            $scope.current_user = response.data;
-            console.log($scope.current_user);
 
             // validate login
              $http({
                 method : "GET",
                 url : "http://localhost:3000/api/current_user"
               }).then(function mySuccess(response) {
+                    $scope.current_user = response.data;
+                    console.log($scope.current_user);
                     document.getElementById('loginButton').style.display = 'none';
                     document.getElementById('profileButton').style.display = 'block';
-                    document.getElementById('profileButton').innerHTML = $scope.user.email;
+                    document.getElementById('profileButton').innerHTML = "Hi, " + $scope.current_user.firstname + " &#9660;" ; 
                     //clear form
                     form.reset();
                     //close pop up
@@ -79,8 +79,9 @@ angular.module('sessionsCtrl', []).controller('sessionsController', function($sc
 
     // reset form every time toggle Login button
     function resetForm(){
-    document.getElementById('loginMessage').innerHTML = "Email:";
-    document.getElementById('signIn').classList.remove('shake');
+        document.getElementById('loginMessage').innerHTML = "Email:";
+        document.getElementById('signIn').classList.remove('shake');
+        document.getElementById("newUser").reset();
     };
 
 	//toggle login button b/w open, register, close
