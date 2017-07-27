@@ -7,8 +7,8 @@
 	<title>Starter Node and Angular</title>
 
 	<!-- CSS -->
-
-	<link rel="stylesheet" href="css/header.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/index.css"> <!-- custom styles -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- JS -->
@@ -44,23 +44,26 @@
 
 	<!-- Title -->
 <div class="container">
-	<div id="header" class="dropdown">
-		<h1>Give Me Food</h1>
+	<div id="header">
 		<!--buttons -->
 		<div class="row" id="buttonRow">
-			<div class="btn-toolbar pull-right">
-				<button id="loginButton"  ng-click="loginToggle()" type="button" class="btn btn-info btn-lg">
+			<h1>Give Me Food</h1>
+			<div class="btn-toolbar">
+				<button id="loginButton" ng-click="loginToggle()" type="button" class="btn btn-info btn-lg">
 		       		 Login
 				</button>
 
 			
 				<!--profile button-->
-				<button id="profileButton" class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" style="display: none">
-	    		<span class="caret"></span></button>
-	    		<ul class="dropdown-menu">
-	     			<li><a href="#">Edit profile</a></li>
-	      			<li><a href="/api/logout" ng-click="logout()">Logout</a></li>
-	    		</ul>
+	    		<div class="btn-group" uib-dropdown is-open="status.isopen">
+			      <button id="profileButton" type="button" class="btn btn-info btn-lg" uib-dropdown-toggle ng-disabled="disabled" style="display: none">
+			        Button dropdown <span class="caret"></span>
+			      </button>
+			      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+			        <li role="menuitem"><a href="#">Edit profile</a></li>
+			        <li role="menuitem"><a href="/api/logout" ng-click="logout()">Logout</a></li>
+			      </ul>
+   				</div>
 
 	    		<!--shopping cart button-->
 				 <button type="button" class="btn btn-info btn-lg pull-right">
@@ -80,6 +83,7 @@
 			<button type="submit" class="btn btn-info btn-sm pull-right">Submit</button>
 		</form>
 
+		<!-- register form -->
 		<form ng-show="newUser" ng-submit="register()" id="newUser">
 			<p><b>Register</b></p>
 			<label>Name:</label>
@@ -92,14 +96,33 @@
       		<br>
 			<button type="submit" class="btn btn-info btn-md pull-right">Sign me up!</button>
 		</form>
-	<hr>
-</div>
+	<hr style="border-color: #c4c4c4">
+	</div>
 	<!-- ANGULAR DYNAMIC CONTENT -->
-
-		<div ng-view></div>
-
+	<div ng-view></div>
 </div>
-	<hr>
+	<hr style="border-color: #c4c4c4">
+
+	<!-- Bottom footer -->
+<footer>
+	<div class="col-md-4" style="border-right: 1px solid #c4c4c4">
+		<p><a href="#">Contact</a></p>
+		<p><a href="#">About Us</a></p>
+	</div>
+	<div class="col-md-4" style="border-right: 1px solid #c4c4c4">
+		<p><a href="#">Manage Account</a></p>
+		<p><a href="#">Register Restaurant</a></p>
+	</div>
+	<div class="col-md-4">
+		<p><b>Social Media</b></p>
+		<a href="#" class="fa fa-facebook"></a>
+		<a href="#" class="fa fa-twitter"></a>	
+		<a href="#" class="fa fa-linkedin"></a>	
+		<a href="#" class="fa fa-google"></a>	
+
+	</div>
+
+</footer>
 
 
 </body>
